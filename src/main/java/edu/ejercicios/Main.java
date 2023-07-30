@@ -1,85 +1,55 @@
 package edu.ejercicios;
 
-import edo.ejercicios.ejercicios.clsEjercicio;
+import edu.ejercicioclase.clsEjercicios;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    public Main() {
-    }
-
     public static void main(String[] args) {
         BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-        clsEjercicio calculos = new clsEjercicio();
-        double radio = 0.0;
+        clsEjercicios calculos = new clsEjercicios();
+
+        double radio = obtenerNumero(lector, "Por favor ingrese el radio del círculo: ");
+        calculos.calcularAreaYCircunferenciaCirculo(radio);
+
+        double ladoCubo = obtenerNumero(lector, "Por favor ingrese la longitud de cada lado del cubo: ");
+        calculos.calcularVolumenCubo(ladoCubo);
+
+        double baseRectangulo = obtenerNumero(lector, "Por favor ingrese la base del rectángulo: ");
+        double alturaRectangulo = obtenerNumero(lector, "Por favor ingrese la altura del rectángulo: ");
+        calculos.calcularAreaPiramide(baseRectangulo, alturaRectangulo);
+
+        double areaBasePrisma = obtenerNumero(lector, "Por favor ingrese el área de la base del prisma: ");
+        double alturaPrisma = obtenerNumero(lector, "Por favor ingrese la altura del prisma: ");
+        calculos.calcularVolumenPrisma(areaBasePrisma, alturaPrisma);
+
+        double radioCilindro = obtenerNumero(lector, "Por favor ingrese el radio del cilindro: ");
+        double alturaCilindro = obtenerNumero(lector, "Por favor ingrese la altura del cilindro: ");
+        calculos.calcularVolumenCilindro(radioCilindro, alturaCilindro);
+
+        double radioEsfera = obtenerNumero(lector, "Por favor ingrese el radio de la esfera: ");
+        calculos.calcularAreaEsfera(radioEsfera);
 
         try {
-            System.out.println("Por favor ingrese el radio del circulo: ");
-            radio = Double.parseDouble(lector.readLine());
-        } catch (Exception var27) {
-            System.out.println("Error: " + var27.getMessage());
+            lector.close();
+        } catch (IOException e) {
+            System.out.println("Error al cerrar el lector.");
         }
+    }
 
-        calculos.CalculosCirculo(radio);
-        double s = 0.0;
-
+    private static double obtenerNumero(BufferedReader lector, String mensaje) {
+        double numero = 0.0;
         try {
-            System.out.println("Por favor ingrese la longitud de cada lado: ");
-            s = Double.parseDouble(lector.readLine());
-        } catch (Exception var26) {
-            System.out.println("Error: " + var26.getMessage());
+            System.out.println(mensaje);
+            numero = Double.parseDouble(lector.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: El valor ingresado no es un número válido.");
+        } catch (IOException e) {
+            System.out.println("Error al leer la entrada.");
         }
-
-        calculos.CalculosCubo(s);
-        double base = 0.0;
-        double altura = 0.0;
-
-        try {
-            System.out.println("Por favor ingrese una base");
-            base = Double.parseDouble(lector.readLine());
-            System.out.println("Por favor ingrese una altura");
-            altura = Double.parseDouble(lector.readLine());
-        } catch (Exception var25) {
-            System.out.println("Error: " + var25.getMessage());
-        }
-
-        calculos.CalculosVarios(base, altura);
-        double area_base = 0.0;
-        double altura_prisma = 0.0;
-
-        try {
-            System.out.println("Por favor ingrese la area_base del prisma");
-            area_base = Double.parseDouble(lector.readLine());
-            System.out.println("Por favor ingrese la altura del prisma");
-            altura_prisma = Double.parseDouble(lector.readLine());
-        } catch (Exception var24) {
-            System.out.println("Error: " + var24.getMessage());
-        }
-
-        calculos.CalculosPrisma(area_base, altura_prisma);
-        double radio_cilin = 0.0;
-        double altura_cilin = 0.0;
-
-        try {
-            System.out.println("Por favor ingrese el radio del cilindro");
-            radio_cilin = Double.parseDouble(lector.readLine());
-            System.out.println("Por favor ingrese la altura del cilindro");
-            altura_cilin = Double.parseDouble(lector.readLine());
-        } catch (Exception var23) {
-            System.out.println("Error: " + var23.getMessage());
-        }
-
-        calculos.CalculosCilindro(radio_cilin, altura_cilin);
-        double radio_esfera = 0.0;
-
-        try {
-            System.out.println("Por favor ingrese el radio del circulo: ");
-            radio_esfera = Double.parseDouble(lector.readLine());
-        } catch (Exception var22) {
-            System.out.println("Error: " + var22.getMessage());
-        }
-
-        calculos.CalculosEsfera(radio_esfera);
+        return numero;
     }
 }
 

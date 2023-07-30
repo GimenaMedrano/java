@@ -1,35 +1,48 @@
 package edu.ejercicioclase;
-import edu.ejercicioclase.clsEjercicios;
 
 public class clsEjercicios {
-    public clsEjercicios() {
+
+    // Calcula el área y circunferencia de un círculo dado su radio
+    public void calcularAreaYCircunferenciaCirculo(double radio) {
+        double area = Math.PI * radio * radio;
+        double circunferencia = 2 * Math.PI * radio;
+        System.out.println("El área del círculo es: " + area);
+        System.out.println("La circunferencia del círculo es: " + circunferencia);
     }
 
-    public void CalculosCirculo(double radio) {
-        System.out.println("El area es de " + Math.PI * radio * radio);
-        System.out.println("La circunferencia es de " + 6.283185307179586 * radio);
+    // Calcula el volumen de un cubo dado uno de sus lados
+    public void calcularVolumenCubo(double lado) {
+        double volumen = Math.pow(lado, 3);
+        System.out.println("El volumen del cubo es: " + volumen);
     }
 
-    public void CalculosCubo(double s) {
-        System.out.println("El volumen del cubo es de " + s * s * s);
+    // Calcula el área de una pirámide dados su base y altura
+    public void calcularAreaPiramide(double base, double altura) {
+        double area = base * altura / 2.0;
+        System.out.println("El área de la pirámide es: " + area);
     }
 
-    public void CalculosVarios(double base, double altura) {
-        System.out.println("El area de esa piramide es de " + base * altura / 2.0);
-        System.out.println("El volumen de esa piramide es de " + base * altura / 3.0);
-        System.out.println("El area de ese triangulo es de " + base * altura / 2.0);
-        System.out.println("El area de ese parelogramo es de " + base * altura / 2.0);
+    // Calcula el volumen de una pirámide dados su base y altura
+    public void calcularVolumenPiramide(double base, double altura) {
+        double volumen = base * altura / 3.0;
+        System.out.println("El volumen de la pirámide es: " + volumen);
     }
 
-    public void CalculosPrisma(double area_base, double altura) {
-        System.out.println("El volumen del prisma es de " + area_base * altura);
+    // Calcula el volumen de un prisma dados el área de su base y altura
+    public void calcularVolumenPrisma(double areaBase, double altura) {
+        double volumen = areaBase * altura;
+        System.out.println("El volumen del prisma es: " + volumen);
     }
 
-    public void CalculosCilindro(double r, double h) {
-        System.out.println("El volumen del cilindro es de " + Math.PI * r * r * h);
+    // Calcula el volumen de un cilindro dados su radio y altura
+    public void calcularVolumenCilindro(double radio, double altura) {
+        double volumen = Math.PI * radio * radio * altura;
+        System.out.println("El volumen del cilindro es: " + volumen);
     }
 
-    public void CalculosEsfera(double r) {
-        System.out.println("El area de la esfera es de " + Math.PI * r * 4.0);
+    // Calcula el área de una esfera dado su radio
+    public void calcularAreaEsfera(double radio) {
+        double area = 4 * Math.PI * radio * radio;
+        System.out.println("El área de la esfera es: " + area);
     }
 }
